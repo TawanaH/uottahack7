@@ -14,6 +14,8 @@ import Form from "../routes/form";
 import "./App.css";
 import kej from "./src/kej.png";
 import Schedule from "../routes/schedule";
+import FormAudio from "../routes/form-audio";
+
 const App = () => {
   useEffect(() => {
     document.title = `${process.env.GADGET_APP}`;
@@ -92,6 +94,12 @@ const App = () => {
           path="schedule"
           element={
             <Schedule />
+          }
+        />
+        <Route
+          path="form-audio"
+          element={
+            <FormAudio />
           }
         />
       </Route>

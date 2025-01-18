@@ -69,6 +69,9 @@ export default function () {
   return (
     <>
     <h2 className="heading">Your Ideal Schedule</h2>
+    <div>
+        <a href="/form-audio">Use Audio!</a>
+    </div>
 <div class="container">
 
     <div class="form_area">
