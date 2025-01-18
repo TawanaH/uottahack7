@@ -1,0 +1,66 @@
+.audiobttn {
+    font-size: 30px;
+    padding: 10px;
+    border-radius: 200px;
+    width: 150px;
+    height: 150px;
+    background-color: #00a6a6;
+    border: none;
+    flex: 1;
+    font-weight: bold;
+    border: 2px solid black;
+}
+
+.audiobttn:hover {
+    box-shadow: 0px 0px 5px 5px #ffc96b;
+}
+
+.stop {
+    border: 5px solid #008686;
+}
+
+.bttns {
+    display: flex;
+    gap: 3rem;
+    margin-top: 20px;
+    margin-bottom: 50px;
+}
+
+.audio {
+    display: block;
+    width: 400px;
+    max-width: 600px;
+    height: 60px;
+    border: none;
+    background-color: #fff;
+    border-radius: 5px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+  }
+  
+  .audio::-webkit-media-controls-panel {
+    background-color: #fff; /* Change background color of the control panel */
+  }
+  
+  .audio::-webkit-media-controls-play-button {
+    background-color:#00a6a6; /* Customize the play button */
+    border-radius: 50%;
+  }
+
+  .instructions {
+    padding: 20px 50px;
+    background-color: #FFF1B7;
+    border: 2px solid #000;
+    border-radius: 20px;
+    box-shadow: 3px 4px 0px 1px #f49f0a;
+    width: 600px;
+    margin-bottom: 50px;
+    padding-bottom: 30px;
+}
+
+.instructions > p{
+      /* font-weight: bold; */
+    margin-top: 10px;
+    text-align: left;
+    font-size: 20px;
+  }
+  

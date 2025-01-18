@@ -1,8 +1,8 @@
 import React, { useState, useEffect } from "react";
-
+import "../components/App.css"
 const Schedule = () => {
   const times = [
-    "8:00", "9:00", "10:00", "11:00", "12:00", "13:00", "14:00",
+    "08:00", "09:00", "10:00", "11:00", "12:00", "13:00", "14:00",
     "15:00", "16:00", "17:00", "18:00", "19:00", "20:00", "21:00", "22:00", "23:00"
   ];
 
@@ -14,7 +14,8 @@ const Schedule = () => {
     requested_courses: {
       mandatory: [
         { course_code: "COMP1405" },
-        { course_code: "COMP1406" }
+        { course_code: "COMP1406" },
+        {course_code : "1805"}
       ],
       electives: []
     },
@@ -120,42 +121,29 @@ const Schedule = () => {
   };
 
   return (
-    <div style={{ display: "flex", justifyContent: "space-between", padding: "20px", position: "relative" }}>
+    <div style={{ position: "relative", display: "flex", justifyContent: "center"}}>
       {/* Navigation Arrows */}
       <div
-        onClick={goToPreviousSchedule}
+        className="arrow"
         style={{
-          cursor: "pointer",
-          fontSize: "2rem",
-          position: "absolute",
-          top: "10px",
-          left: "10px",
-          padding: "10px",
-          backgroundColor: "#00a6a6",
-          color: "#fff",
-          borderRadius: "50%",
-          userSelect: "none",
+          left: "20px"
         }}
+        onClick={goToPreviousSchedule}
       >
-        &lt;
+        <div className="arrow-top"></div>
+        <div className="arrow-bottom"></div>
       </div>
 
       <div
-        onClick={goToNextSchedule}
+         className="arrow arrow-left"
         style={{
-          cursor: "pointer",
-          fontSize: "2rem",
-          position: "absolute",
-          top: "10px",
-          right: "10px",
-          padding: "10px",
-          backgroundColor: "#00a6a6",
-          color: "#fff",
-          borderRadius: "50%",
-          userSelect: "none",
+         right: "20px"
         }}
+        onClick={goToNextSchedule}
       >
-        &gt;
+      <div className="arrow-top"></div>
+      <div className="arrow-bottom"></div>
+        
       </div>
 
       {/* Calendar Table */}

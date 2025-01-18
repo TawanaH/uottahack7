@@ -1,10 +1,20 @@
-
-
-.heading {
-    color: #00A6A6;
-    font-size: 40px;
+.url {
     width: 100%;
+    display: block;
     text-align: left;
+    margin-left: 50px;
+}
+
+.url > a {
+    text-decoration: none;
+    color: black;
+    font-weight: bold;
+    background-color: #4fd3d3;
+    padding: 10px;
+    border-radius: 10px;
+}
+.url > a:hover {
+    background-color: #00A6A6;
 }
 
 .container {

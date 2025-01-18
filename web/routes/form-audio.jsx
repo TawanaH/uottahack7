@@ -1,6 +1,7 @@
 import MicRecorder from 'mic-recorder-to-mp3-fixed';
 import { useState } from 'react';
 import { useEffect } from 'react';
+import "../components/formaudiostyle.css"
 
 
 export default function() {
@@ -16,6 +17,7 @@ export default function() {
         isRecording: false,
         blobURL: '',
         isBlocked: false,
+        blob: null
     })
 
 
@@ -33,49 +35,51 @@ export default function() {
       };
 
     const stop = () => {
-        // console.log(Mp3Recorder)
         recorder
           .stop()
           .getMp3()
           .then(([buffer, blob]) => {
             const blobURL = URL.createObjectURL(blob)
-            setState({ blobURL, isRecording: false });
-            console.log(blobURL)
+            setState({ blobURL, isRecording: false, blob: blob });
           }).catch((e) => console.log(e));
+      };
 
-
-
-        // if (recorder && recorder.activeStream) {
-        //     recorder.stop().then(() => {
-        //         recorder.getMp3().then(([buffer, blob]) => {
-        //             const blobURL = URL.createObjectURL(blob);
-        //             setState({ blobURL, isRecording: false });
-        //             console.log(blobURL);
-        //         }).catch((e) => console.error("Error getting MP3:", e));
-        //     }).catch((e) => console.error("Error stopping recording:", e));
+      const sendAudioFile = async () => {
+        const formData = new FormData();
+        formData.append('audio', state.blob, 'recording.mp3'); // Append the MP3 file as 'audio' in FormData
+      
+        console.log('sending...', formData);
+        // const response = await fetch('/your-server-endpoint', {
+        //   method: 'POST',
+        //   body: formData, // Send the FormData with the MP3 file
+        // });
+      
+        // if (response.ok) {
+        //   console.log('File sent successfully');
         // } else {
-        //     console.error('Recorder not initialized or stream is not active', recorder);
+        //   console.error('Error sending file:', response.status);
         // }
       };
 
-    const printObj =() => {
-        console.log(recorder)
-    }
-
     return (
         <>
-        <h2>Form Audio</h2>
+        <h2 style={{"margin-left": "-100px"}} className='heading'>Form Audio</h2>
 
-        <button onClick={start} disabled={state.isRecording}>
-        Record
-        </button>
-        <button onClick={stop} disabled={!state.isRecording}>
-        Stop
-        </button>
-        <audio src={state.blobURL} controls="controls" />
-        <br></br>
-        <br></br>
-        <button onClick={printObj}>Print</button>
+        <div className='instructions'>
+
+        <p><strong>In the [season] [year] semester I would like to take [course codes].</strong></p>
+        <p><u>(Optional):</u> I want to take [number] electives, my options are [course codes]</p>
+        <p><u>(Optional):</u> I want [criteria]</p>
+        <p><u>Example Critera:</u> I want to avoid courses before 8:30am. I want to have no classes on Friday</p>        
+        
+        </div>
+
+        <audio className="audio" src={state.blobURL} controls="controls" />
+        <div className='bttns'>
+
+        {state.isRecording ? <button className='audiobttn stop' onClick={stop} disabled={!state.isRecording}>Stop</button>:<button className='audiobttn' onClick={start} disabled={state.isRecording}>Record</button>}        
+        <button className='audiobttn' onClick={sendAudioFile}>Go</button>
+        </div>
         </>
     )
 }
