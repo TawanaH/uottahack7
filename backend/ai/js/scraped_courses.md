@@ -126,280 +126,198 @@
 
 ---
 
-## COMP 1805 (Section A)
+## COMP 1406 (Section A)
 
-- **CRN**: 11173
-- **Title**: Discrete Structures I
+- **CRN**: 11151
+- **Title**: Intro to Computer Science II
 - **Status**: Registration Closed
 - **Credits**: 0.5
 - **Schedule Type**: Lecture
-- **Instructor**: Alina Shaikhet
-- **Days**: Wed Fri
-- **Time**: 11:35 - 12:55
-- **Also Register in**: COMP 1805 A1 or A2 or A3
-
----
-
-## COMP 1805 (Section A1)
-
-- **CRN**: 11174
-- **Title**: Discrete Structures I
-- **Status**: Registration Closed
-- **Credits**: 0
-- **Schedule Type**: Tutorial
-- **Instructor**: Alina Shaikhet
-- **Days**: Thu
-- **Time**: 14:35 - 15:25
-- **Also Register in**: COMP 1805 A
-
----
-
-## COMP 1805 (Section A2)
-
-- **CRN**: 11175
-- **Title**: Discrete Structures I
-- **Status**: Registration Closed
-- **Credits**: 0
-- **Schedule Type**: Tutorial
-- **Instructor**: Alina Shaikhet
-- **Days**: Wed
-- **Time**: 13:35 - 14:25
-- **Also Register in**: COMP 1805 A
-
----
-
-## COMP 1805 (Section A3)
-
-- **CRN**: 11176
-- **Title**: Discrete Structures I
-- **Status**: Registration Closed
-- **Credits**: 0
-- **Schedule Type**: Tutorial
-- **Instructor**: Alina Shaikhet
-- **Days**: Mon
-- **Time**: 12:35 - 13:25
-- **Also Register in**: COMP 1805 A
-
----
-
-## COMP 1805 (Section B)
-
-- **CRN**: 11177
-- **Title**: Discrete Structures I
-- **Status**: Registration Closed
-- **Credits**: 0.5
-- **Schedule Type**: Lecture
-- **Instructor**: Alina Shaikhet
+- **Instructor**: Jason Hinek
 - **Days**: Tue Thu
 - **Time**: 11:35 - 12:55
-- **Also Register in**: COMP 1805 B1 or B2 or B3
+- **Also Register in**: COMP 1406 A1 or A2
 
 ---
 
-## COMP 1805 (Section B1)
+## COMP 1406 (Section A1)
 
-- **CRN**: 11178
-- **Title**: Discrete Structures I
+- **CRN**: 11152
+- **Title**: Intro to Computer Science II
 - **Status**: Registration Closed
 - **Credits**: 0
 - **Schedule Type**: Tutorial
-- **Instructor**: Alina Shaikhet
-- **Days**: Thu
-- **Time**: 16:35 - 17:25
-- **Also Register in**: COMP 1805 B
-
----
-
-## COMP 1805 (Section B2)
-
-- **CRN**: 11179
-- **Title**: Discrete Structures I
-- **Status**: Registration Closed
-- **Credits**: 0
-- **Schedule Type**: Tutorial
-- **Instructor**: Alina Shaikhet
-- **Days**: Fri
-- **Time**: 16:35 - 17:25
-- **Also Register in**: COMP 1805 B
-
----
-
-## COMP 1805 (Section B3)
-
-- **CRN**: 11180
-- **Title**: Discrete Structures I
-- **Status**: Registration Closed
-- **Credits**: 0
-- **Schedule Type**: Tutorial
-- **Instructor**: Alina Shaikhet
+- **Instructor**: Jason Hinek
 - **Days**: Tue
-- **Time**: 14:35 - 15:25
-- **Also Register in**: COMP 1805 B
+- **Time**: 18:05 - 19:25
+- **Also Register in**: COMP 1406 A
 
 ---
 
-## COMP 1805 (Section C)
+## COMP 1406 (Section A2)
 
-- **CRN**: 11181
-- **Title**: Discrete Structures I
+- **CRN**: 11153
+- **Title**: Intro to Computer Science II
+- **Status**: Registration Closed
+- **Credits**: 0
+- **Schedule Type**: Tutorial
+- **Instructor**: Jason Hinek
+- **Days**: Wed
+- **Time**: 19:35 - 20:55
+- **Also Register in**: COMP 1406 A
+
+---
+
+## COMP 1406 (Section B)
+
+- **CRN**: 11154
+- **Title**: Intro to Computer Science II
 - **Status**: Registration Closed
 - **Credits**: 0.5
 - **Schedule Type**: Lecture
-- **Instructor**: Alina Shaikhet
-- **Days**: 
-- **Time**:  - 
-- **Also Register in**: COMP 1805 C1 or C2
-
----
-
-## COMP 1805 (Section C1)
-
-- **CRN**: 11182
-- **Title**: Discrete Structures I
-- **Status**: Registration Closed
-- **Credits**: 0
-- **Schedule Type**: Tutorial
-- **Instructor**: Alina Shaikhet
-- **Days**: Mon
-- **Time**: 16:35 - 17:25
-- **Also Register in**: COMP 1805 C
-
----
-
-## COMP 1805 (Section C2)
-
-- **CRN**: 11183
-- **Title**: Discrete Structures I
-- **Status**: Registration Closed
-- **Credits**: 0
-- **Schedule Type**: Tutorial
-- **Instructor**: Alina Shaikhet
-- **Days**: Tue
-- **Time**: 16:35 - 17:25
-- **Also Register in**: COMP 1805 C
-
----
-
-## MATH 1007 (Section G)
-
-- **CRN**: 13791
-- **Title**: Elementary Calculus I
-- **Status**: Registration Closed
-- **Credits**: 0.5
-- **Schedule Type**: Lecture
-- **Instructor**: RJ Cova Cova
+- **Instructor**: Farah Chanchary
 - **Days**: Mon Wed
-- **Time**: 08:35 - 09:55
-- **Also Register in**: MATH 1007 GT
-
----
-
-## MATH 1007 (Section GT)
-
-- **CRN**: 13796
-- **Title**: Elementary Calculus I
-- **Status**: Registration Closed
-- **Credits**: 0
-- **Schedule Type**: Tutorial
-- **Instructor**: 
-- **Days**: Wed
-- **Time**: 16:35 - 17:25
-- **Also Register in**: MATH 1007 G
-
----
-
-## MATH 1007 (Section H)
-
-- **CRN**: 13797
-- **Title**: Elementary Calculus I
-- **Status**: Registration Closed
-- **Credits**: 0.5
-- **Schedule Type**: Lecture
-- **Instructor**: Gennady Shaikhet
-- **Days**: Tue Thu
 - **Time**: 10:05 - 11:25
-- **Also Register in**: MATH 1007 HT
+- **Also Register in**: COMP 1406 B1 or B2 or B3
 
 ---
 
-## MATH 1007 (Section HT)
+## COMP 1406 (Section B1)
 
-- **CRN**: 13802
-- **Title**: Elementary Calculus I
+- **CRN**: 11155
+- **Title**: Intro to Computer Science II
 - **Status**: Registration Closed
 - **Credits**: 0
 - **Schedule Type**: Tutorial
-- **Instructor**: 
-- **Days**: Thu
-- **Time**: 13:35 - 14:25
-- **Also Register in**: MATH 1007 H
+- **Instructor**: Farah Chanchary
+- **Days**: Mon
+- **Time**: 16:05 - 17:25
+- **Also Register in**: COMP 1406 B
 
 ---
 
-## MATH 1007 (Section I)
+## COMP 1406 (Section B2)
 
-- **CRN**: 13803
-- **Title**: Elementary Calculus I
+- **CRN**: 11156
+- **Title**: Intro to Computer Science II
 - **Status**: Registration Closed
-- **Credits**: 0.5
-- **Schedule Type**: Lecture
-- **Instructor**: RJ Cova Cova
-- **Days**: Tue Thu
+- **Credits**: 0
+- **Schedule Type**: Tutorial
+- **Instructor**: Farah Chanchary
+- **Days**: Thu
+- **Time**: 08:35 - 09:55
+- **Also Register in**: COMP 1406 B
+
+---
+
+## COMP 1406 (Section B3)
+
+- **CRN**: 11157
+- **Title**: Intro to Computer Science II
+- **Status**: Registration Closed
+- **Credits**: 0
+- **Schedule Type**: Tutorial
+- **Instructor**: Farah Chanchary
+- **Days**: Thu
 - **Time**: 14:35 - 15:55
-- **Also Register in**: MATH 1007 IT
+- **Also Register in**: COMP 1406 B
 
 ---
 
-## MATH 1007 (Section IT)
+## COMP 1406 (Section D)
 
-- **CRN**: 13808
-- **Title**: Elementary Calculus I
+- **CRN**: 11161
+- **Title**: Intro to Computer Science II
+- **Status**: Registration Closed
+- **Credits**: 0.5
+- **Schedule Type**: Lecture
+- **Instructor**: Mehak Mustafa
+- **Days**: Tue Thu
+- **Time**: 08:35 - 09:55
+- **Also Register in**: COMP 1406 D1 or D2
+
+---
+
+## COMP 1406 (Section D1)
+
+- **CRN**: 11162
+- **Title**: Intro to Computer Science II
 - **Status**: Registration Closed
 - **Credits**: 0
 - **Schedule Type**: Tutorial
-- **Instructor**: 
+- **Instructor**: Mehak Mustafa
+- **Days**: Fri
+- **Time**: 14:35 - 15:55
+- **Also Register in**: COMP 1406 D
+
+---
+
+## COMP 1406 (Section D2)
+
+- **CRN**: 11163
+- **Title**: Intro to Computer Science II
+- **Status**: Registration Closed
+- **Credits**: 0
+- **Schedule Type**: Tutorial
+- **Instructor**: Mehak Mustafa
+- **Days**: Fri
+- **Time**: 10:05 - 11:25
+- **Also Register in**: COMP 1406 D
+
+---
+
+## COMP 1406 (Section E)
+
+- **CRN**: 11164
+- **Title**: Intro to Computer Science II
+- **Status**: Registration Closed
+- **Credits**: 0.5
+- **Schedule Type**: Lecture
+- **Instructor**: Farah Chanchary
+- **Days**: Mon Wed
+- **Time**: 14:35 - 15:55
+- **Also Register in**: COMP 1406 E1 or E2 or E3
+
+---
+
+## COMP 1406 (Section E1)
+
+- **CRN**: 11165
+- **Title**: Intro to Computer Science II
+- **Status**: Registration Closed
+- **Credits**: 0
+- **Schedule Type**: Tutorial
+- **Instructor**: Farah Chanchary
+- **Days**: Fri
+- **Time**: 10:05 - 11:25
+- **Also Register in**: COMP 1406 E
+
+---
+
+## COMP 1406 (Section E2)
+
+- **CRN**: 11166
+- **Title**: Intro to Computer Science II
+- **Status**: Registration Closed
+- **Credits**: 0
+- **Schedule Type**: Tutorial
+- **Instructor**: Farah Chanchary
+- **Days**: Fri
+- **Time**: 14:35 - 15:55
+- **Also Register in**: COMP 1406 E
+
+---
+
+## COMP 1406 (Section E3)
+
+- **CRN**: 15656
+- **Title**: Intro to Computer Science II
+- **Status**: Registration Closed
+- **Credits**: 0
+- **Schedule Type**: Tutorial
+- **Instructor**: Farah Chanchary
 - **Days**: Thu
-- **Time**: 18:05 - 18:55
-- **Also Register in**: MATH 1007 I
-
----
-
-## BIOL 1902 (Section W)
-
-- **CRN**: 10399
-- **Title**: Natural History
-- **Status**: Registration Closed
-- **Credits**: 0.5
-- **Schedule Type**: Lecture
-- **Instructor**: Mike Runtz
-- **Days**: 
-- **Time**:  - 
-
----
-
-## PSYC 1001 (Section J)
-
-- **CRN**: 14691
-- **Title**: Introduction to Psychology I
-- **Status**: Registration Closed
-- **Credits**: 0.5
-- **Schedule Type**: Lecture
-- **Instructor**: John Weekes
-- **Days**: Tue
-- **Time**: 18:05 - 20:55
-
----
-
-## PSYC 1001 (Section L)
-
-- **CRN**: 14692
-- **Title**: Introduction to Psychology I
-- **Status**: Registration Closed
-- **Credits**: 0.5
-- **Schedule Type**: Lecture
-- **Instructor**: Kim O'Neil
-- **Days**: Wed
-- **Time**: 08:35 - 11:25
+- **Time**: 17:35 - 18:55
 
 ---
 
