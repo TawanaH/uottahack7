@@ -1,10 +1,10 @@
 .app {
   width: 100vw;
   height: calc(100vh - 80px);
-  background-image: url("https://assets.gadget.dev/assets/default-app-assets/default-background.svg");
+  background-color : #f49f0a;
   left: 0;
   top: 80px;
-  position: fixed;
+  /* position: fixed; */
   z-index: 0;
 }
 
@@ -14,8 +14,8 @@
   align-items: center;
   justify-content: center;
   width: 100vw;
-  height: 100%;
-  background: radial-gradient(ellipse at center, white 0.5rem, rgb(0, 0, 0, 0) 40rem);
+  min-height: 100%;
+  background: #f49f0a;
 }
 
 .app-logo {
@@ -122,7 +122,6 @@ button {
 
 .header {
   display: flex;
-  background-color: #fff;
   width: 100%;
   height: 80px;
   padding: 21px 50px 21px 49px;
@@ -132,6 +131,7 @@ button {
   z-index: 1;
   position: relative;
   font-size: 14px;
+  background-color: #f49f0a;
 }
 
 .header-content {
