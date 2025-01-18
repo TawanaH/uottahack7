@@ -1,3 +1,17 @@
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 import os
 import json
 import re
@@ -266,7 +280,8 @@ def generate_schedules(
         f"MANDATORY COURSES: {mandatory_courses}, "
         f"ELECTIVE COURSES: {elective_courses}, "
         f"SPECIAL REQUESTS: {special_requests or 'None'}, "
-        f"MARKDOWN FILE CONTENT: {md_content}"
+        f"MARKDOWN FILE CONTENT: {md_content}, "
+        f"GENERATION INSTRUCTIONS: Generate multiple course schedules (each with a maximum of 2.5 credits) from the provided course list. For courses with tutorials, always select the tutorial that corresponds to the chosen lecture section, and only register for a tutorial if its parent lecture is included in the schedule. You can not register for two tutorials for the same class."
     )
 
     messages = [
@@ -282,6 +297,8 @@ def generate_schedules(
             stream=False,
             response_format={"type": "json_object"},
         )
+
+        print(chat_completion)
 
         parsed = GenerateSchedulesResponse.model_validate_json(
             chat_completion.choices[0].message.content
@@ -430,14 +447,16 @@ if __name__ == "__main__":
     # Define valid course codes.
     valid_codes = [
         "COMP1405", "COMP1805", "COMP2804", "COMP1406",
-        "BUSI1001", "BUSI2001", "BUSI2002", "BUSI3001"
+        "BUSI1001", "BUSI2001", "BUSI2002", "BUSI3001", 
+        "MATH1007", "BIOL1902", "PSYC1001"
     ]
 
     # ------------------------------------------------------------------
     # (A) GET COURSE CODES (prefer audio if provided, else use raw text)
     # ------------------------------------------------------------------
-    audio_file_path = None  # e.g., "path/to/your/audiofile.m4a"
-    raw_text_input = "I want COMP1405 and COMP1805, and as an elective, BUSI2002. Please avoid Fridays."
+    # audio_file_path = "test3.m4a"
+    audio_file_path = ""
+    raw_text_input = "I want to mandatory register is COMP 1405, COMP 1805, MATH 1007, BIOL 1902, PSYC 1001"
 
     codes_response = get_course_codes(
         client=client,

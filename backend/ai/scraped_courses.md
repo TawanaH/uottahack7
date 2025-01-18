@@ -1,15 +1,119 @@
 # Course List
 
-## BUSI 2002 (Section B)
+## BIOL 1902 (Section W)
 
-- **CRN**: 10623
-- **Title**: Intermediate Accounting II
+- **CRN**: 10399
+- **Title**: Natural History
 - **Status**: Registration Closed
 - **Credits**: 0.5
 - **Schedule Type**: Lecture
-- **Instructor**: Hayley Cooper
+- **Instructor**: Mike Runtz
+- **Days**: 
+- **Time**:  - 
+
+---
+
+## PSYC 1001 (Section J)
+
+- **CRN**: 14691
+- **Title**: Introduction to Psychology I
+- **Status**: Registration Closed
+- **Credits**: 0.5
+- **Schedule Type**: Lecture
+- **Instructor**: John Weekes
 - **Days**: Tue
 - **Time**: 18:05 - 20:55
+
+---
+
+## PSYC 1001 (Section L)
+
+- **CRN**: 14692
+- **Title**: Introduction to Psychology I
+- **Status**: Registration Closed
+- **Credits**: 0.5
+- **Schedule Type**: Lecture
+- **Instructor**: Kim O'Neil
+- **Days**: Wed
+- **Time**: 08:35 - 11:25
+
+---
+
+## MATH 1007 (Section G)
+
+- **CRN**: 13791
+- **Title**: Elementary Calculus I
+- **Status**: Registration Closed
+- **Credits**: 0.5
+- **Schedule Type**: Lecture
+- **Instructor**: RJ Cova Cova
+- **Days**: Mon Wed
+- **Time**: 08:35 - 09:55
+
+---
+
+## MATH 1007 (Section GT)
+
+- **CRN**: 13796
+- **Title**: Elementary Calculus I
+- **Status**: Registration Closed
+- **Credits**: 0.0
+- **Schedule Type**: Tutorial
+- **Instructor**: 
+- **Days**: Wed
+- **Time**: 16:35 - 17:25
+
+---
+
+## MATH 1007 (Section H)
+
+- **CRN**: 13797
+- **Title**: Elementary Calculus I
+- **Status**: Registration Closed
+- **Credits**: 0.5
+- **Schedule Type**: Lecture
+- **Instructor**: Gennady Shaikhet
+- **Days**: Tue Thu
+- **Time**: 10:05 - 11:25
+
+---
+
+## MATH 1007 (Section HT)
+
+- **CRN**: 13802
+- **Title**: Elementary Calculus I
+- **Status**: Registration Closed
+- **Credits**: 0.0
+- **Schedule Type**: Tutorial
+- **Instructor**: 
+- **Days**: Thu
+- **Time**: 13:35 - 14:25
+
+---
+
+## MATH 1007 (Section I)
+
+- **CRN**: 13803
+- **Title**: Elementary Calculus I
+- **Status**: Registration Closed
+- **Credits**: 0.5
+- **Schedule Type**: Lecture
+- **Instructor**: RJ Cova Cova
+- **Days**: Tue Thu
+- **Time**: 14:35 - 15:55
+
+---
+
+## MATH 1007 (Section IT)
+
+- **CRN**: 13808
+- **Title**: Elementary Calculus I
+- **Status**: Registration Closed
+- **Credits**: 0.0
+- **Schedule Type**: Tutorial
+- **Instructor**: 
+- **Days**: Thu
+- **Time**: 18:05 - 18:55
 
 ---
 
