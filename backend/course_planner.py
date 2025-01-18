@@ -327,7 +327,7 @@ if __name__ == "__main__":
 
     # Example: Provide some subset of valid course codes
     valid_codes = [
-        "COMP1405", "COMP1805", "COMP2401", "COMP2804", "COMP1406"
+        "COMP1405", "COMP1805", "COMP2804", "COMP1406"
     ]
 
     # 1) GET COURSE CODES (audio only)
