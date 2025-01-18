@@ -280,6 +280,19 @@
 
 ---
 
+## BIOL 1902 (Section W)
+
+- **CRN**: 10399
+- **Title**: Natural History
+- **Status**: Registration Closed
+- **Credits**: 0.5
+- **Schedule Type**: Lecture
+- **Instructor**: Mike Runtz
+- **Days**: 
+- **Time**:  - 
+
+---
+
 ## PSYC 1001 (Section J)
 
 - **CRN**: 14691
@@ -303,19 +316,6 @@
 - **Instructor**: Kim O'Neil
 - **Days**: Wed
 - **Time**: 08:35 - 11:25
-
----
-
-## BIOL 1902 (Section W)
-
-- **CRN**: 10399
-- **Title**: Natural History
-- **Status**: Registration Closed
-- **Credits**: 0.5
-- **Schedule Type**: Lecture
-- **Instructor**: Mike Runtz
-- **Days**: 
-- **Time**:  - 
 
 ---
 
