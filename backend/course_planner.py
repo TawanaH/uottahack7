@@ -24,9 +24,13 @@ class GetCourseCodesResponse(BaseModel):
     - electives
 
     If unspecified, codes go into mandatory.
+    
+    'special_request' captures additional scheduling requirements
+    (e.g., "no classes on Friday").
     """
     status: str               # "success" or "error"
     requested_input: str      # The transcribed user speech
+    special_request: str      # The user's special request
     mandatory: List[CourseCode] = []
     electives: List[CourseCode] = []
 
@@ -36,21 +40,10 @@ class GetCourseCodesResponse(BaseModel):
 # ----------------------------------------------------------------------
 class ScheduleCourse(BaseModel):
     """
-    Represents a single class’s schedule information, including additional fields:
-      - status
-      - crn
-      - course_code
-      - section
-      - course_title
-      - credits
-      - schedule_type
-      - instructor
-      - day
-      - start_time
-      - end_time
+    Represents a single class’s schedule information.
     """
     status: str               # e.g. "open", "registration closed"
-    crn: str                  # random numeric identifier, e.g. "12345"
+    crn: str                  # random numeric identifier
     course_code: str
     section: str              # e.g. "A", "B"
     course_title: str         # e.g. "Intro to Programming"
@@ -94,7 +87,7 @@ class GenerateSchedulesResponse(BaseModel):
 def get_course_codes(
     client: Groq,
     audio_file_path: str,
-    allowed_codes: List[str],  # Restrict recognized course codes to this list
+    allowed_codes: List[str],
     transcription_model: str = "whisper-large-v3-turbo",
     prompt: Optional[str] = None,
     model: str = "llama3-70b-8192",  # or whichever Groq model you prefer
@@ -105,8 +98,11 @@ def get_course_codes(
        splitting recognized codes into 'mandatory' or 'electives'. If not specified,
        default to 'mandatory'.
 
-    The 'allowed_codes' parameter can be used to restrict recognized courses
+    The 'allowed_codes' parameter restricts recognized courses
     to a predefined set (e.g., ["COMP1405","COMP1805"]).
+
+    Also extracts a 'special_request' from the user's speech if present
+    (e.g., "no classes on Friday").
     """
 
     # Step 1: Transcribe the audio
@@ -123,6 +119,7 @@ def get_course_codes(
         return GetCourseCodesResponse(
             status="error",
             requested_input=f"File not found: {audio_file_path}",
+            special_request="",
             mandatory=[],
             electives=[]
         )
@@ -130,6 +127,7 @@ def get_course_codes(
         return GetCourseCodesResponse(
             status="error",
             requested_input=str(e),
+            special_request="",
             mandatory=[],
             electives=[]
         )
@@ -139,19 +137,23 @@ def get_course_codes(
         return GetCourseCodesResponse(
             status="error",
             requested_input="No transcribed text found.",
+            special_request="",
             mandatory=[],
             electives=[]
         )
 
-    # Step 2: Instruct the model about mandatory vs. elective
+    # Step 2: Instruct the model about mandatory vs. elective + capturing special_request
     schema_text = json.dumps(GetCourseCodesResponse.model_json_schema(), indent=2)
     system_prompt = (
         "You are a course code extraction assistant. You must output JSON that "
         "matches this schema:\n\n"
         f"{schema_text}\n\n"
-        "The schema has two lists: 'mandatory' and 'electives'. "
-        "If the user explicitly says a course is 'optional' or 'elective', put it in 'electives'. "
-        "Otherwise, put it in 'mandatory'.\n\n"
+        "Schema fields:\n"
+        "- 'mandatory': list of codes user explicitly wants\n"
+        "- 'electives': list of codes user says are optional\n"
+        "- 'special_request': if user mentions any scheduling preference like 'avoid Fridays', store it here.\n"
+        "\n"
+        "If user doesn't mention an 'elective' or 'optional' phrase, default it to 'mandatory'.\n\n"
         "The ONLY valid course codes are listed below. "
         "If the user mentions codes not in this list, ignore them or find the closest valid code.\n"
         f"Allowed codes: {allowed_codes}\n\n"
@@ -173,24 +175,21 @@ def get_course_codes(
             response_format={"type": "json_object"},  # Use JSON mode
         )
 
-        # Parse JSON output into our new GetCourseCodesResponse model
+        # Parse JSON output into our GetCourseCodesResponse model
         parsed_response = GetCourseCodesResponse.model_validate_json(
             chat_completion.choices[0].message.content
         )
 
         # Filter out any codes not in allowed_codes
         filtered_mandatory = [
-            c for c in parsed_response.mandatory
-            if c.course_code in allowed_codes
+            c for c in parsed_response.mandatory if c.course_code in allowed_codes
         ]
         filtered_electives = [
-            c for c in parsed_response.electives
-            if c.course_code in allowed_codes
+            c for c in parsed_response.electives if c.course_code in allowed_codes
         ]
 
         parsed_response.mandatory = filtered_mandatory
         parsed_response.electives = filtered_electives
-
         parsed_response.status = "success"
         parsed_response.requested_input = user_query
 
@@ -200,6 +199,7 @@ def get_course_codes(
         return GetCourseCodesResponse(
             status="error",
             requested_input=user_query,
+            special_request="",
             mandatory=[],
             electives=[]
         )
@@ -267,7 +267,7 @@ def generate_schedules(
         "- day\n"
         "- start_time\n"
         "- end_time\n\n"
-        "Ensure your JSON strictly follows the schema (keys, data types, etc.)."
+        "Ensure your JSON strictly follows the schema (keys, data types, etc.).\n"
     )
 
     user_msg = f"""
@@ -319,7 +319,7 @@ MARKDOWN FILE CONTENT:
 
 
 # ----------------------------------------------------------------------
-# USAGE EXAMPLE (not executed by default)
+# USAGE EXAMPLE
 # ----------------------------------------------------------------------
 if __name__ == "__main__":
     load_dotenv()
@@ -330,8 +330,8 @@ if __name__ == "__main__":
         "COMP1405", "COMP1805", "COMP2804", "COMP1406"
     ]
 
-    # 1) GET COURSE CODES (audio only)
-    audio_path = os.path.join(os.path.dirname(__file__), "test2.m4a")
+    # 1) GET COURSE CODES (audio only) + special request
+    audio_path = os.path.join(os.path.dirname(__file__), "test3.m4a")
     codes_response = get_course_codes(
         client=client,
         audio_file_path=audio_path,
@@ -344,17 +344,18 @@ if __name__ == "__main__":
     print(codes_response.model_dump_json(indent=2))
 
     # 2) PASS THE RESULTS INTO generate_schedules
+    #    We now also pass special_request from the user’s transcription
     mandatory_list = [c.course_code for c in codes_response.mandatory]
     elective_list = [c.course_code for c in codes_response.electives]
 
-    # Example usage with a file named "classes.md" (see below)
     schedules_response = generate_schedules(
         client=client,
         md_file_path="classes.md",
         mandatory_courses=mandatory_list,
         elective_courses=elective_list,
-        special_requests="No classes on Friday.",
+        special_requests=codes_response.special_request,  # <--- Use the captured request
         model="llama3-70b-8192"
     )
+
     print("\n--- GENERATE SCHEDULES RESPONSE ---")
     print(schedules_response.model_dump_json(indent=2))
