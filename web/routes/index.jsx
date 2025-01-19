@@ -1,18 +1,10 @@
 import { useNavigate } from "react-router";
-import kej from "../components/src/kej.png"
+import kej from "../components/src/kej.png";
+import  "../components/App.css"
 export default function HomePage() {
   const navigate = useNavigate();
   return (
-    <div
-      style={{
-        display: "flex",
-        flexDirection: "column",
-        alignItems: "center",
-        justifyContent: "center",
-        height: "100vh",
-        backgroundColor: "#f49f0a", // Updated background color
-      }}
-    >
+    <div className = "index-page">
       {/* SKEJ Title */}
       <h1
         style={{
@@ -40,29 +32,31 @@ export default function HomePage() {
 
       {/* Button */}
       <button
-  style={{
-    backgroundColor: "#00a6a6",
-    color: "#fff1b7",
-    padding: "10px 20px",
-    borderRadius: "100px",
-    border: "8px solid #00cdcd ",
-    cursor: "pointer",
-    marginTop: "20px",
-    opacity: "90%",
-  }}
-  onClick={() => navigate("/form")}
->
-  Check out the map {'->'}
-</button>
-       <footer
         style={{
-          width: "100%",
+          backgroundColor: "#00a6a6",
+          color: "#fff1b7",
+          padding: "10px 20px",
+          borderRadius: "100px",
+          border: "8px solid #00cdcd ",
+          cursor: "pointer",
+          marginTop: "20px",
+          opacity: "90%",
+        }}
+        onClick={() => navigate("/form")}
+      >
+        Check out the map {'->'}
+      </button>
+
+      {/* Footer */}
+      <footer
+        style={{
+          width: "100vw",
           padding: "20px",
           marginTop: "40px", // Adds space between content and footer
         }}
       >
         <img
-          src={kej} 
+          src={kej}
           alt="Footer Image"
           style={{
             width: "100%",  // Adjust size as needed

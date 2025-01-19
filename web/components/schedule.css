@@ -1,0 +1,97 @@
+.schedTitle {
+    margin-top: 20px;
+    background-color: #00a6a6;
+    padding: 0;
+    /* display: inline-block; */
+    width: 160px;
+    /* text-align: left; */
+    margin-left: 100px;
+    border: 1px solid #edc889; 
+    border-bottom: none;
+}
+
+.table {
+    border-collapse: collapse;
+    border-top: none;
+}
+
+.table > thead {
+    border-top: none;
+}
+
+.table > thead  > tr > th {
+    width: 110px;
+}
+
+td {
+    font-size: 12px;
+}
+
+.cont {
+    margin-right: 20px; 
+    background-color: #00a6a6;
+    display: flex;
+    border-radius: 20px;
+    margin-bottom: 50px;
+}
+
+.classes {
+    width: 300px;
+    border-left: 1px solid #edc889; 
+    padding: 20px;
+}
+
+.arrow1 {
+    width: 70px;
+}
+
+.arrow-top, .arrow-bottom {
+    background-color: #edc889 !important;
+    width: 30px;
+}
+
+.aright {
+    position: relative;
+    left: 15px;
+    top: 50px;
+    color: #edc889 !important;
+}
+
+.aleft {
+    position: relative;
+    left: 5px;
+    top: -5px;
+}
+
+.courseCode {
+    background-color: #ffffff4c;
+    display: inline-block;
+    padding: 5px 10px;
+    border-radius: 10px;
+    cursor: pointer;
+}
+
+.selected {
+    background-color: #edc889;
+}
+
+.course {
+    margin-bottom: 20px;
+    align-items: left;
+    text-align: left;
+}
+
+.courseInfo {
+    margin-top: 10px;
+    margin-left: 5px;
+    padding-left: 25px;
+    border-radius: 10px;
+    background-color: #edc889;
+}
+
+.courseInfo a {
+    color:#004646;
+}
+.courseInfo a:hover {
+    color:#026767;
+}

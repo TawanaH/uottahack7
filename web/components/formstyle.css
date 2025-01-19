@@ -1,3 +1,5 @@
+
+
 .url {
     width: 100%;
     display: block;
@@ -92,17 +94,19 @@
   .form_style {
     outline: none;
     border: 2px solid #264143;
-    box-shadow: 3px 4px 0px 1px #f49f0a;
+    /* box-shadow: 3px 4px 0px 1px #f49f0a; */
     width: 290px;
     padding: 12px 10px;
     border-radius: 4px;
     font-size: 15px;
   }
   
-  .form_style:focus, .btn:focus {
-    transform: translateY(4px);
-    box-shadow: 1px 2px 0px 0px #f49f0a;
+  .form_style:focus {
+    box-shadow: 0 0px 2px 2px #03d0d0;
+    /* box-shadow: 0 0px 2px 2px #f49f0a; */
+
   }
+  
   
   .btn {
       padding: 15px;
@@ -110,10 +114,10 @@
       margin-top: 100px;
     width: 290px;
     font-size: 18px;
-    background: #00A6A6;
+    background: #03d0d0;
     border-radius: 10px;
     font-weight: 800;
-    box-shadow: 3px 3px 0px 0px #f49f0a;
+    /* box-shadow: 3px 3px 0px 0px #f49f0a; */
   }
   
   .btn:hover {

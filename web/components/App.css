@@ -1,12 +1,23 @@
+body {
+  background-color : #f49f0a;
+}
+
 .heading {
   color: #00A6A6;
   font-size: 40px;
   width: 100%;
   text-align: left;
 }
-
+.index-page{
+    overflow: hidden;
+    display: "flex";
+    flexDirection: "column";
+    alignItems: "center";
+    justifyContent: "center";
+    height: "100vh";
+}
 .app {
-  width: 100vw;
+  /* width: 100vw; */
   height: calc(100vh - 80px);
   background-color : #f49f0a;
   left: 0;
@@ -20,7 +31,7 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  width: 100vw;
+  /* width: 100vw; */
   min-height: 100%;
   background: #f49f0a;
 }

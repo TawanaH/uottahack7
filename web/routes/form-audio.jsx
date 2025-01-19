@@ -45,10 +45,21 @@ export default function() {
       };
 
       const sendAudioFile = async () => {
-        const formData = new FormData();
-        formData.append('audio', state.blob, 'recording.mp3'); // Append the MP3 file as 'audio' in FormData
-      
-        console.log('sending...', formData);
+        saveMp3(blob);
+        // const formData = new FormData();
+        // formData.append('audio', state.blob, 'recording.mp3'); // Append the MP3 file as 'audio' in FormData
+        
+        // try {
+        //     // You can test either with raw text or an audio file.
+        //     const result = await generateSchedulesFromInput({
+        //     //   rawText: "I want to mandatory register COMP1405, COMP1805, MATH1007, BIOL1902, PSYC1001"
+        //       // Or use an audio file by providing:
+        //       audioFilePath: "test3.m4a"
+        //     });
+        //     console.log("Final Schedules JSON:\n", JSON.stringify(result, null, 2));
+        //   } catch (err) {
+        //     console.error("Error during test:", err);
+        //   }
         // const response = await fetch('/your-server-endpoint', {
         //   method: 'POST',
         //   body: formData, // Send the FormData with the MP3 file

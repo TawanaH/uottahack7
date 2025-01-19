@@ -1,74 +1,19 @@
 import React, { useState, useEffect } from "react";
-import "../components/App.css"
+import { useLocation } from "react-router";
+import "../components/schedule.css"
+
 const Schedule = () => {
+  
+  const location = useLocation()
+  const state = location.state || {}
+  const res = state?.schedules || {};
+  const scheduleResponse = JSON.parse(res)
   const times = [
     "08:00", "09:00", "10:00", "11:00", "12:00", "13:00", "14:00",
-    "15:00", "16:00", "17:00", "18:00", "19:00", "20:00", "21:00", "22:00", "23:00"
+    "15:00", "16:00", "17:00", "18:00", "19:00", "20:00", "21:00", "22:00"
   ];
 
-  const days = ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday"];
-
-  // Example of how the response data might look
-  const scheduleResponse = {
-    status: "success",
-    requested_courses: {
-      mandatory: [
-        { course_code: "COMP1405" },
-        { course_code: "COMP1406" },
-        {course_code : "1805"}
-      ],
-      electives: []
-    },
-    special_requests: "no class on a Monday",
-    schedules: [
-      {
-        schedule_id: 1,
-        courses: [
-          {
-            course_code: "COMP1405",
-            section: "A",
-            course_title: "Introduction to Programming",
-            instructor: "Dr. Jane Smith",
-            day: "Wednesday",
-            start_time: "08:30",
-            end_time: "10:00"
-          },
-          {
-            course_code: "COMP1406",
-            section: "A",
-            course_title: "Foundations of Programming",
-            instructor: "Dr. Helen Clark",
-            day: "Tuesday",
-            start_time: "08:00",
-            end_time: "09:30"
-          },
-        ]
-      },
-      {
-        schedule_id: 2,
-        courses: [
-          {
-            course_code: "COMP1405",
-            section: "A1",
-            course_title: "Introduction to Programming",
-            instructor: "Bob Brown",
-            day: "Wednesday",
-            start_time: "16:00",
-            end_time: "17:30"
-          },
-          {
-            course_code: "COMP1406",
-            section: "B",
-            course_title: "Foundations of Programming",
-            instructor: "Prof. Gina Mendez",
-            day: "Wednesday",
-            start_time: "14:00",
-            end_time: "15:30"
-          },
-        ]
-      }
-    ]
-  };
+  const days = ["Mon", "Tue", "Wed", "Thu", "Fri"];
 
   const [tasks, setTasks] = useState(
     times.reduce((acc, time) => {
@@ -78,7 +23,10 @@ const Schedule = () => {
   );
 
   const [currentSchedule, setCurrentSchedule] = useState(1);
-  const [scheduleData, setScheduleData] = useState(scheduleResponse.schedules);
+  const [scheduleData, setScheduleData] = useState(scheduleResponse["schedules"]);
+  const [visibleIndex, setVisibleIndex] = useState(null); // State to track which course info is visible
+  const [visibleCourse, setVisibleCourse] = useState(null);
+
 
   useEffect(() => {
     const loadSchedule = () => {
@@ -92,13 +40,18 @@ const Schedule = () => {
       const currentScheduleData = scheduleData[currentSchedule - 1];
 
       currentScheduleData.courses.forEach((course) => {
-        const courseDay = course.day;
-        const courseTime = course.start_time;
-        const courseTitle = course.course_title;
-
+        const courseDay = course.day.split(" ");
+        const courseStart = course.start_time;
+        const courseEnd = course.end_time;
+        const courseCode = course.course_code + " " +  course.section;
         // Check if the course start time matches the available times
-        if (newTasks[courseTime]) {
-          newTasks[courseTime][courseDay] = courseTitle;
+        for (let time in newTasks) {
+          if (parseInt(courseStart.slice(0, 2)) >= parseInt(time.slice(0, 2)) && parseInt(courseEnd.slice(0, 2)) <= (parseInt(time.slice(0, 2))+1)){
+            courseDay.forEach(d => {
+              newTasks[time][d] = courseCode;
+            })
+            break
+          }
         }
       });
 
@@ -120,39 +73,42 @@ const Schedule = () => {
     }
   };
 
-  return (
-    <div style={{ position: "relative", display: "flex", justifyContent: "center"}}>
-      {/* Navigation Arrows */}
-      <div
-        className="arrow"
-        style={{
-          left: "20px"
-        }}
-        onClick={goToPreviousSchedule}
-      >
-        <div className="arrow-top"></div>
-        <div className="arrow-bottom"></div>
-      </div>
 
-      <div
-         className="arrow arrow-left"
-        style={{
-         right: "20px"
-        }}
-        onClick={goToNextSchedule}
-      >
-      <div className="arrow-top"></div>
-      <div className="arrow-bottom"></div>
-        
-      </div>
+  const toggleVisibility = (index, courseCode) => {
+    console.log(courseCode)
+    setVisibleIndex(visibleIndex === index ? null : index); // Toggle visibility for the clicked course
+    setVisibleCourse(visibleIndex === index ? null : courseCode);
+  };
+
+  return (
+    <div style={{justifyContent: "center"}}>
+      {/* Navigation Arrows */}
+
+
+      <h2 className="heading" >Schedules</h2>
 
       {/* Calendar Table */}
-      <div style={{ width: "70%", marginRight: "20px" }}>
-        <h2 style={{ textAlign: "center" }}>Schedule {currentSchedule}</h2>
-        <table style={{ width: "100%", borderCollapse: "collapse" }}>
+      <h2 className="schedTitle">Schedule {currentSchedule}</h2>
+      <div className="cont">
+        <div className="arrow">
+
+        </div>
+
+        <div className="arrow1">
+          <div
+            className="arrow aleft"
+            style={{"rotate": "180deg"}}
+            onClick={goToPreviousSchedule}
+          >
+            <div className="arrow-top"></div>
+            <div className="arrow-bottom"></div>
+          </div>
+        </div>
+
+        <table className="table">
           <thead>
             <tr>
-              <th style={{ width: "150px", border: "1px solid #ccc", padding: "10px", backgroundColor: "#00a6a6" }}>Time</th>
+              <th style={{border: "1px solid #ccc", backgroundColor: "#00a6a6" }}>Time</th>
               {days.map((day) => (
                 <th
                   key={day}
@@ -169,7 +125,8 @@ const Schedule = () => {
             </tr>
           </thead>
           <tbody>
-            {times.map((time) => (
+            {times.map((time) => 
+            (
               <tr key={time}>
                 <td
                   style={{
@@ -182,8 +139,11 @@ const Schedule = () => {
                 >
                   {time}
                 </td>
-                {days.map((day) => (
+                {days.map((day) => 
+                
+                (
                   <td
+                  className={tasks[time] && tasks[time][day] && visibleCourse == tasks[time][day] ? "selected" : ""}
                     key={day}
                     style={{
                       border: "1px solid #ccc",
@@ -199,18 +159,36 @@ const Schedule = () => {
             ))}
           </tbody>
         </table>
-      </div>
 
-      {/* Classes Area */}
-      <div style={{ width: "25%", borderLeft: "px solid #ccc", padding: "20px" }}>
-        <h3>Classes Information</h3>
-        <ul>
-          {scheduleData[currentSchedule - 1].courses.map((course, index) => (
-            <li key={index}>
-              {course.course_code} - {course.course_title} ({course.instructor}) - {course.day} {course.start_time} - {course.end_time}
-            </li>
-          ))}
-        </ul>
+        <div className="arrow1">
+          <div
+            className="arrow aright"
+            onClick={goToNextSchedule}
+          >
+          <div className="arrow-top"></div>
+          <div className="arrow-bottom"></div>
+            
+          </div>
+        </div>
+
+        {/* Classes Area */}
+        <div className="classes">
+          <h3 style={{"textAlign": "left", "marginLeft": "20px"}}>Classes</h3>
+          <br></br>
+            {scheduleData[currentSchedule - 1].courses.map((course, index) => (
+              <div className="course" key={index} onClick={() => toggleVisibility(index, (course.course_code+" "+course.section))}>
+                <div className={visibleIndex === index ? "courseCode selected" : "courseCode"}>{course.course_code} {course.section}</div>
+                {/* {<div className="courseInfo"> */}
+                {visibleIndex === index && <div className="courseInfo">
+                  <p><a href={"https://calendar.carleton.ca/search/?P="+course.course_code.slice(0, 4) + "%20" + course.course_code.slice(4)} target="_blank">{course.course_title}</a></p>
+                  <p><a href={"https://www.ratemyprofessors.com/search/professors?q="+course.instructor.replace(/ /g, '%20')} target="_blank">{course.instructor}</a></p>
+                  <p>CRN: {course.crn}</p>
+                  <p>{course.day}</p>
+                  <p>{course.start_time} - {course.end_time}</p>
+                </div> }
+              </div>
+            ))}
+        </div>
       </div>
     </div>
   );

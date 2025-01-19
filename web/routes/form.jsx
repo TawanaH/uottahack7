@@ -1,10 +1,17 @@
+import { useGlobalAction } from "@gadgetinc/react";
+import { api } from "../api";
 import { useState } from "react";
 import "../components/formstyle.css"
+import { useNavigate } from "react-router";
 
 import AvailableTimes from 'react-available-times';
 // import { start } from "repl";
 
 export default function () {
+  const navigate = useNavigate();
+  const [{ data, error, fetching }, callGroq] = useGlobalAction(api.callGroq);
+  const [result, setResult] = useState();
+
     const terms = ['Winter 2025', 'Summer 2025', 'Fall 2025']
   const [totalClasses, setTotalClasses] = useState(5); // Default total classes
   const [electiveCount, setElectiveCount] = useState(totalClasses); // Initial elective count
@@ -40,7 +47,7 @@ export default function () {
 
 
   // Handle submission
-  const handleSubmit = (e) => {
+  async function handleSubmit(e) {
     e.preventDefault();
     const mandatoryClassesCount = mandatoryClasses.length
     let avail = "";
@@ -62,9 +69,37 @@ export default function () {
         additionalRequests: additionalRequest,
         calendarData: avail
     }
-    console.log("SUBMITTED: ", submitObj)
+
+    let groqParam = "I would like to take these mandatory courses "
+    mandatoryClasses.forEach((e) => {
+      groqParam += e+" "
+    });
+    groqParam += ". I would like to take "+(totalClasses-mandatoryClassesCount)+ " of these electives "
+    electiveClasses.forEach((e) => {
+      groqParam += e+" "
+    });
+    groqParam += ". My additional requests: I would like the classes to not fall in these times "+avail+". And "+additionalRequest
+    
+
+
+    console.log("SUBMITTED: ", groqParam)
+    
+    
+    //UNCOMMMMENTEAORUIER THIS IS LITERALLY SO ESSENTIAL PLEASEEEEEEEEEEEEEEEEEEEEEEEEEE
+    try {
+        const response = await api.callGroq({
+            rawText: groqParam,
+          });
+          navigate('/schedule', {state: {schedules: response}})
+        
+        } catch (error) {
+            console.log("Error:", error);
+          }
+          
     setSubmitted(true);
   };
+
+  
 
   return (
     <>
@@ -101,7 +136,7 @@ export default function () {
               value={totalClasses}
               onChange={handleTotalClassesChange}
             >
-              {[...Array(6)].map((_, i) => (
+              {[...Array(5)].map((_, i) => (
                 <option key={i} value={i + 1}>
                   {i + 1}
                 </option>
