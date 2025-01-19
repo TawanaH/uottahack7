@@ -1,10 +1,28 @@
+body {
+  background-color : #f49f0a;
+}
+
+.heading {
+  color: #00A6A6;
+  font-size: 40px;
+  width: 100%;
+  text-align: left;
+}
+.index-page{
+    overflow: hidden;
+    display: "flex";
+    flexDirection: "column";
+    alignItems: "center";
+    justifyContent: "center";
+    height: "100vh";
+}
 .app {
-  width: 100vw;
+  /* width: 100vw; */
   height: calc(100vh - 80px);
-  background-image: url("https://assets.gadget.dev/assets/default-app-assets/default-background.svg");
+  background-color : #f49f0a;
   left: 0;
   top: 80px;
-  position: fixed;
+  /* position: fixed; */
   z-index: 0;
 }
 
@@ -13,9 +31,9 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  width: 100vw;
-  height: 100%;
-  background: radial-gradient(ellipse at center, white 0.5rem, rgb(0, 0, 0, 0) 40rem);
+  /* width: 100vw; */
+  min-height: 100%;
+  background: #f49f0a;
 }
 
 .app-logo {
@@ -122,7 +140,6 @@ button {
 
 .header {
   display: flex;
-  background-color: #fff;
   width: 100%;
   height: 80px;
   padding: 21px 50px 21px 49px;
@@ -132,6 +149,7 @@ button {
   z-index: 1;
   position: relative;
   font-size: 14px;
+  background-color: #f49f0a;
 }
 
 .header-content {
@@ -302,4 +320,75 @@ button {
   margin-bottom:0;
   padding-bottom:8;
 }
+.arrow {
+  cursor: pointer;
+  height: 60px;
+  position: absolute;
+  top: 50%; /* Center vertically */
+  transform: translateY(-50%); /* Adjust vertical alignment */
+  transition: transform 0.1s;
+  width: 50px;
+}
 
+.arrow-top, .arrow-bottom {
+  background-color: #666;
+  height: 4px;
+  position: absolute;
+  top: 50%;
+  width: 100%;
+}
+
+.arrow-top:after, .arrow-bottom:after {
+  background-color: #fff;
+  content: "";
+  height: 100%;
+  position: absolute;
+  top: 0;
+  transition: all 0.15s;
+}
+
+.arrow-top {
+  transform: rotate(45deg);
+  transform-origin: bottom right;
+}
+
+.arrow-top:after {
+  left: 100%;
+  right: 0;
+  transition-delay: 0s;
+}
+
+.arrow-bottom {
+  transform: rotate(-45deg);
+  transform-origin: top right;
+}
+
+.arrow-bottom:after {
+  left: 0;
+  right: 100%;
+  transition-delay: 0.15s;
+}
+
+.arrow:hover .arrow-top:after {
+  left: 0;
+  transition-delay: 0.15s;
+}
+
+.arrow:hover .arrow-bottom:after {
+  right: 0;
+  transition-delay: 0s;
+}
+
+.arrow:active {
+  transform: translateY(-50%) scale(0.9);
+}
+
+/* Left Arrow (Previous Schedule) */
+.arrow-left {
+  left: -60px; /* Adjust to the left of the table */
+}
+
+/* Right Arrow (Next Schedule) */
+.arrow-right {
+  right: -60px; /* Adjust to the right of the table */
+}

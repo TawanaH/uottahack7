@@ -16,6 +16,14 @@ export const permissions: GadgetPermissions = {
         action: true,
       },
       models: {
+        audioFile: {
+          read: true,
+          actions: {
+            create: true,
+            delete: true,
+            update: true,
+          },
+        },
         user: {
           read: {
             filter: "accessControl/filters/user/tenant.gelly",
@@ -29,6 +37,9 @@ export const permissions: GadgetPermissions = {
             },
           },
         },
+      },
+      actions: {
+        callGroq: true,
       },
     },
     unauthenticated: {
@@ -44,6 +55,9 @@ export const permissions: GadgetPermissions = {
             verifyEmail: true,
           },
         },
+      },
+      actions: {
+        callGroq: true,
       },
     },
   },

@@ -10,7 +10,11 @@ import ResetPasswordPage from "../routes/reset-password";
 import VerifyEmailPage from "../routes/verify-email";
 import ChangePassword from "../routes/change-password";
 import ForgotPassword from "../routes/forgot-password";
+import Form from "../routes/form";
 import "./App.css";
+import kej from "./src/kej.png";
+import Schedule from "../routes/schedule";
+import FormAudio from "../routes/form-audio";
 
 const App = () => {
   useEffect(() => {
@@ -80,6 +84,24 @@ const App = () => {
             <VerifyEmailPage />
           }
         />
+        <Route
+          path="form"
+          element={
+            <Form />
+          }
+        />
+        <Route
+          path="schedule"
+          element={
+            <Schedule />
+          }
+        />
+        <Route
+          path="form-audio"
+          element={
+            <FormAudio />
+          }
+        />
       </Route>
     )
   );
@@ -111,15 +133,7 @@ const Layout = () => {
 const Header = () => {
   return (
     <div className="header">
-      <a href="/" target="_self" rel="noreferrer" style={{ textDecoration: "none" }}>
-        <div className="logo">{process.env.GADGET_APP}</div>
-      </a>
-      <div className="header-content">
-        <SignedOut>
-          <Link to="/sign-in" style={{ color: "black" }}>Sign in</Link>
-          <Link to="/sign-up" style={{ color: "black" }}>Sign up</Link>
-        </SignedOut>
-      </div>
+     
     </div>
   );
 };

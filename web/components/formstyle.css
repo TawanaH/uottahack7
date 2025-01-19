@@ -1,0 +1,131 @@
+
+
+.url {
+    width: 100%;
+    display: block;
+    text-align: left;
+    margin-left: 50px;
+}
+
+.url > a {
+    text-decoration: none;
+    color: black;
+    font-weight: bold;
+    background-color: #4fd3d3;
+    padding: 10px;
+    border-radius: 10px;
+}
+.url > a:hover {
+    background-color: #00A6A6;
+}
+
+.container {
+    display: flex;
+    gap: 4rem;
+    /* align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    text-align: center; */
+    
+    padding: 20px 50px;
+    background-color: #FFF1B7;
+    border: 2px solid #000;
+    border-radius: 20px;
+    box-shadow: 3px 4px 0px 1px #f49f0a;
+}
+
+.rat-AvailableTimes_component {
+    color: black !important;
+    margin-top: 20px;
+}
+
+.rat-Week_hour {
+    border-bottom: 1px solid #f49f0a !important;
+}
+
+.rat-Day_grayed {
+    background-image: linear-gradient(-45deg, #ffc96b 25%, transparent 25%, transparent 50%, #ffc96b 50%, #ffc96b 75%, transparent 75%, transparent) !important;
+}
+
+.rat-Ruler_component {
+    background-color: #f7b034 !important;
+}
+
+.rat-TimeSlot_component {
+    background-color: #00A6A6 !important;
+}
+
+.cal {
+    position: static;
+    height: 500px;
+    width: 500px;
+    flex: 1;
+}
+
+.form_area {
+    /* display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column; */
+    flex: 1;
+    height: auto;
+    width: auto;
+  }
+  
+  .title {
+    color: #00A6A6;
+    font-weight: 900;
+    font-size: 1.5em;
+    margin-top: 20px;
+  }
+  
+  .sub_title {
+    font-weight: 600;
+    margin: 5px 0;
+  }
+  
+  .form_group {
+    display: flex;
+    flex-direction: column;
+    align-items: baseline;
+    margin: 10px;
+  }
+  
+  .form_style {
+    outline: none;
+    border: 2px solid #264143;
+    /* box-shadow: 3px 4px 0px 1px #f49f0a; */
+    width: 290px;
+    padding: 12px 10px;
+    border-radius: 4px;
+    font-size: 15px;
+  }
+  
+  .form_style:focus {
+    box-shadow: 0 0px 2px 2px #03d0d0;
+    /* box-shadow: 0 0px 2px 2px #f49f0a; */
+
+  }
+  
+  
+  .btn {
+      padding: 15px;
+      margin: 25px 0px;
+      margin-top: 100px;
+    width: 290px;
+    font-size: 18px;
+    background: #03d0d0;
+    border-radius: 10px;
+    font-weight: 800;
+    /* box-shadow: 3px 3px 0px 0px #f49f0a; */
+  }
+  
+  .btn:hover {
+    opacity: 0.8;
+  }
+  
+  .link {
+    font-weight: 800;
+    color: #264143;
+    padding: 5px;
+  }
